@@ -11,6 +11,7 @@ var burgerKey = ["fishBurger", "cheeseBurger", "comboBurger"];
 var storeUserSelectection = [];
 var storeBurgersToDisplay = [];
 var score = 0;
+var totalScore = 0;
 
 //The burger recipes for different combination of burger
 
@@ -35,21 +36,32 @@ var clickOnion = document.querySelector("#ingredient-onions");
 var clickTomato = document.querySelector("#ingredient-tomatoes");
 var selectedIngredients = document.querySelector(".selected-ingredients");
 var ordersIncoming = document.querySelector(".incoming-orders");
+var showScore = document.querySelector("#scoreboard");
+var clearOrder = document.querySelector("#clear-button");
 
 var checkIfOrderMatches = function(burgerToDisplay) {
-  console.log(storeUserSelectection.join(""));
+  score = storeBurgersToDisplay[0].length;
+
   if (storeUserSelectection.join("") === storeBurgersToDisplay[0].join("")) {
-    score++;
     selectedIngredients.innerHTML = "";
     storeBurgersToDisplay.splice(0, 1);
     ordersIncoming.removeChild(ordersIncoming.childNodes[0]);
     storeUserSelectection = [];
     console.log(storeUserSelectection);
     console.log(score);
+    totalScore += score;
+    console.log(totalScore);
+    showScore.innerText = `Score = ${totalScore}`;
   } else {
     console.log("error");
     console.log(storeUserSelectection);
   }
+};
+
+var clearSelectedIngredients = function() {
+  console.log("hello");
+  selectedIngredients.innerHTML = "";
+  storeUserSelectection = [];
 };
 
 var test = function() {
@@ -122,7 +134,8 @@ var putTomato = function() {
 
 var putOrder = function() {
   var ordersIncoming = document.getElementById("incoming");
-  var burgersDisplay = document.createElement("div");
+  var burgersDisplay = document.createElement("h1");
+  burgersDisplay.className = "col";
   var index = Math.floor(Math.random() * 3);
   var key = burgerKey[index];
   var burgerToDisplay = allTheBurgers[key];
@@ -139,7 +152,8 @@ var putOrder = function() {
   ordersIncoming.appendChild(burgersDisplay);
 };
 
-setInterval(putOrder, 2000);
+setInterval(putOrder, 8000);
+clearOrder.addEventListener("click", clearSelectedIngredients);
 clickSubmit.addEventListener("click", checkIfOrderMatches);
 selectedIngredients.addEventListener("click", test);
 clickBeef.addEventListener("click", putBeef);

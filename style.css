@@ -1,6 +1,6 @@
 .container {
   margin: 0 auto;
-  height: 1000px;
+  height: 800px;
   width: 100%;
   border: black solid;
 }
@@ -25,14 +25,13 @@
 .ingredients-box {
   margin: 0 auto;
   display: flex;
-  height: 25%;
+  height: 10%;
   width: 80%;
   justify-content: space-around;
   align-items: flex-end;
-  /* border: solid rgb(88, 88, 221); */
 }
 
-#ingredient-beef {
+/* #ingredient-beef {
   margin: auto;
 }
 
@@ -62,11 +61,22 @@
 
 #ingredient-tomatoes {
   margin: auto;
-}
+} */
 
 #submit-button {
-  display: flex;
-  justify-content: center;
-  border: none;
-  background-color: #4caf50;
+  width: 100%;
+}
+
+h1 {
+  display: block;
+}
+
+#scoreboard {
+  margin-top: 15px;
+  text-align: center;
+  height: 30%;
+}
+
+#clear-button {
+  width: 100%;
 }

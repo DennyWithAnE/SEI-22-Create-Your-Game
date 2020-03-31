@@ -4,14 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <title>Fish Burger Or Cheeseburger</title>
   </head>
   <body>
     <div class="container">
-      <div id="incoming" class="incoming-orders"></div>
+      <div id="incoming" class="incoming-orders row-cols-1 row"></div>
       <div id="selected-space" class="selected-ingredients"></div>
-      <div id="submit-button"><button>Pass the orders!</button></div>
-      <div" class="ingredients-box">
+      <div>
+        <button
+          type="button"
+          class="btn btn-outline-warning "
+          id="submit-button"
+        >
+          Submit Order ! ! !
+        </button>
+      </div>
+      <div class="ingredients-box">
         <div id="ingredient-beef"><h1>🥩</h1></div>
         <div id="ingredient-fish"><h1>🐟</h1></div>
         <div id="ingredient-egg"><h1>🥚</h1></div>
@@ -21,7 +35,18 @@
         <div id="ingredient-onions"><h1>🧅</h1></div>
         <div id="ingredient-tomatoes"><h1>🍅</h1></div>
       </div>
+      <div id="clear-button">
+        <button type="button" class="btn btn-outline-danger " id="clear-button">
+          Clear Order ! ! !
+        </button>
+        <div id="scoreboard"><h2>Hello</h2></div>
+      </div>
     </div>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
