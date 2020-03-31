@@ -43,6 +43,7 @@ var checkIfOrderMatches = function(burgerToDisplay) {
   score = storeBurgersToDisplay[0].length;
 
   if (storeUserSelectection.join("") === storeBurgersToDisplay[0].join("")) {
+    correctAnswer();
     selectedIngredients.innerHTML = "";
     storeBurgersToDisplay.splice(0, 1);
     ordersIncoming.removeChild(ordersIncoming.childNodes[0]);
@@ -152,7 +153,17 @@ var putOrder = function() {
   ordersIncoming.appendChild(burgersDisplay);
 };
 
-setInterval(putOrder, 8000);
+var endOfGame = function() {
+  alert("GAME END! Refresh the page to start again!");
+};
+
+function correctAnswer() {
+  var right = document.getElementById("correct");
+  right.play();
+}
+
+setInterval(putOrder, 1000);
+setTimeout(endOfGame, 100000);
 clearOrder.addEventListener("click", clearSelectedIngredients);
 clickSubmit.addEventListener("click", checkIfOrderMatches);
 selectedIngredients.addEventListener("click", test);
