@@ -31,41 +31,8 @@
   align-items: flex-end;
 }
 
-/* #ingredient-beef {
-  margin: auto;
-}
-
-#ingredient-fish {
-  margin: auto;
-}
-
-#ingredient-egg {
-  margin: auto;
-}
-
-#ingredient-burger {
-  margin: auto;
-}
-
-#ingredient-cheese {
-  margin: auto;
-}
-
-#ingredient-cucumbers {
-  margin: auto;
-}
-
-#ingredient-onions {
-  margin: auto;
-}
-
-#ingredient-tomatoes {
-  margin: auto;
-} */
-
 #submit-button {
   width: 100%;
-  z-index: 0;
 }
 
 h1 {
