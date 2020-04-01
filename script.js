@@ -150,8 +150,10 @@ var putOrder = function() {
     newOrdersArray.push(burgerToDisplay[i]);
   }
   storeBurgersToDisplay.push(newOrdersArray);
-  burgersDisplay.innerHTML = burgers;
-  ordersIncoming.appendChild(burgersDisplay);
+  if (ordersIncoming.childElementCount < 3) {
+    burgersDisplay.innerHTML = burgers;
+    ordersIncoming.appendChild(burgersDisplay);
+  }
 };
 
 var endOfGame = function() {
@@ -175,8 +177,8 @@ function wrongOrderSound() {
   wrong.play();
 }
 
-setInterval(putOrder, 6000);
-setTimeout(endOfGame, 100000);
+setInterval(putOrder, 7000);
+setTimeout(endOfGame, 85000);
 clearOrder.addEventListener("click", clearSelectedIngredients);
 clickSubmit.addEventListener("click", checkIfOrderMatches);
 selectedIngredients.addEventListener("click", test);
