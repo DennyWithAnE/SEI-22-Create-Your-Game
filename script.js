@@ -1,30 +1,17 @@
-var ingredients = ["🍅", "🧅", "🥒", "🧀", "🥩", "🥯", "🐟", "🥚"];
-
 var allTheBurgers = {
   fishBurger: ["🐟", "🧀", "🥯", "🍅"],
   cheeseBurger: ["🥩", "🧅", "🧀", "🥯", "🍅"],
   comboBurger: ["🥩", "🐟", "🧀", "🥯", "🥚", "🥒", "🧅", "🍅"]
 };
-
+//The burger recipes for different combination of burger
 var burgerKey = ["fishBurger", "cheeseBurger", "comboBurger"];
 
 var storeUserSelectection = [];
 var storeBurgersToDisplay = [];
 var score = 0;
 var totalScore = 0;
+//These variables are needed to store certain data for usage later on
 
-//The burger recipes for different combination of burger
-
-var beef = "🥩";
-var fish = "🐟";
-var egg = "🥚";
-var burger = "🥯";
-var cheese = "🧀";
-var cucumber = "🥒";
-var onion = "🧅";
-var tomatoes = "🍅";
-
-//Listing out all the ingredients
 var clickSubmit = document.querySelector("#submit-button");
 var clickBeef = document.querySelector("#ingredient-beef");
 var clickFish = document.querySelector("#ingredient-fish");
@@ -38,10 +25,10 @@ var selectedIngredients = document.querySelector(".selected-ingredients");
 var ordersIncoming = document.querySelector(".incoming-orders");
 var showScore = document.querySelector("#scoreboard");
 var clearOrder = document.querySelector("#clear-button");
+//QuerySelector for all the item which we are using
 
 var checkIfOrderMatches = function(burgerToDisplay) {
   score = storeBurgersToDisplay[0].length;
-
   if (storeUserSelectection.join("") === storeBurgersToDisplay[0].join("")) {
     correctAnswerSound();
     selectedIngredients.innerHTML = "";
@@ -54,86 +41,63 @@ var checkIfOrderMatches = function(burgerToDisplay) {
     console.log(totalScore);
     showScore.innerText = `Score = ${totalScore}`;
   } else {
-    console.log("error");
-    console.log(storeUserSelectection);
+    console.log("The correct order is" + storeBurgersToDisplay[0]);
     wrongOrderSound();
   }
 };
+//The checkIfOrderMatches functions help to check between what the user submitted &
+// - between what is on the position[0] of Burgers to Display
+
+var create = function(char) {
+  storeUserSelectection.push(char);
+  var selectedDiv = document.getElementById("selected-space");
+  var placeToCreate = document.createElement("h1");
+  placeToCreate.textContent = char;
+  selectedDiv.appendChild(placeToCreate);
+};
+//The function create(char) creates the ingredient the user clicked on and append it onto the selected space
 
 var clearSelectedIngredients = function() {
-  console.log("cleared");
   clearOrderSound();
   selectedIngredients.innerHTML = "";
   storeUserSelectection = [];
 };
+//The function clearSelectedIngredients clears all the item which the users had selected.
 
-var test = function() {
-  console.log("testing 1 2 3");
-};
-
+//=============================================
 var putBeef = function() {
-  storeUserSelectection.push("🥩");
-  var selectedDiv = document.getElementById("selected-space");
-  var placeToCreate = document.createElement("h1");
-  placeToCreate.textContent = "🥩";
-  selectedDiv.appendChild(placeToCreate);
+  create("🥩");
 };
 
 var putFish = function() {
-  storeUserSelectection.push("🐟");
-  var selectedDiv = document.getElementById("selected-space");
-  var placeToCreate = document.createElement("h1");
-  placeToCreate.textContent = "🐟";
-  selectedDiv.appendChild(placeToCreate);
+  create("🐟");
 };
 
 var putEgg = function() {
-  storeUserSelectection.push("🥚");
-  var selectedDiv = document.getElementById("selected-space");
-  var placeToCreate = document.createElement("h1");
-  placeToCreate.textContent = "🥚";
-  selectedDiv.appendChild(placeToCreate);
+  create("🥚");
 };
 
 var putBurger = function() {
-  storeUserSelectection.push("🥯");
-  var selectedDiv = document.getElementById("selected-space");
-  var placeToCreate = document.createElement("h1");
-  placeToCreate.textContent = "🥯";
-  selectedDiv.appendChild(placeToCreate);
+  create("🥯");
 };
 
 var putCheese = function() {
-  storeUserSelectection.push("🧀");
-  var selectedDiv = document.getElementById("selected-space");
-  var placeToCreate = document.createElement("h1");
-  placeToCreate.textContent = "🧀";
-  selectedDiv.appendChild(placeToCreate);
+  create("🧀");
 };
 
 var putCucumber = function() {
-  storeUserSelectection.push("🥒");
-  var selectedDiv = document.getElementById("selected-space");
-  var placeToCreate = document.createElement("h1");
-  placeToCreate.textContent = "🥒";
-  selectedDiv.appendChild(placeToCreate);
+  create("🥒");
 };
 
-var putOnion = function() {
-  storeUserSelectection.push("🧅");
-  var selectedDiv = document.getElementById("selected-space");
-  var placeToCreate = document.createElement("h1");
-  placeToCreate.textContent = "🧅";
-  selectedDiv.appendChild(placeToCreate);
+var putOnion = function(event) {
+  create("🧅");
 };
 
 var putTomato = function() {
-  storeUserSelectection.push("🍅");
-  var selectedDiv = document.getElementById("selected-space");
-  var placeToCreate = document.createElement("h1");
-  placeToCreate.textContent = "🍅";
-  selectedDiv.appendChild(placeToCreate);
+  create("🍅");
 };
+//=============================================
+//These functions will create the selected contents to be passed into the create function
 
 var putOrder = function() {
   var ordersIncoming = document.getElementById("incoming");
@@ -155,13 +119,16 @@ var putOrder = function() {
     ordersIncoming.appendChild(burgersDisplay);
   }
 };
+//This function puts the order into the screen
 
 var endOfGame = function() {
   var gameEnds = document.getElementById("gameover");
   gameEnds.play();
   alert("GAME END! Refresh the page to start again!");
 };
+//function to indicate Game has ended with the gameover sound function inside
 
+//===================================================
 function correctAnswerSound() {
   var right = document.getElementById("correct");
   right.play();
@@ -176,12 +143,12 @@ function wrongOrderSound() {
   var wrong = document.getElementById("wrong");
   wrong.play();
 }
+//===================================================
+//These are the functions for the sounds
 
 setInterval(putOrder, 7000);
 setTimeout(endOfGame, 85000);
-clearOrder.addEventListener("click", clearSelectedIngredients);
-clickSubmit.addEventListener("click", checkIfOrderMatches);
-selectedIngredients.addEventListener("click", test);
+
 clickBeef.addEventListener("click", putBeef);
 clickFish.addEventListener("click", putFish);
 clickEgg.addEventListener("click", putEgg);
@@ -190,3 +157,5 @@ clickCheese.addEventListener("click", putCheese);
 clickCucumber.addEventListener("click", putCucumber);
 clickOnion.addEventListener("click", putOnion);
 clickTomato.addEventListener("click", putTomato);
+clearOrder.addEventListener("click", clearSelectedIngredients);
+clickSubmit.addEventListener("click", checkIfOrderMatches);
