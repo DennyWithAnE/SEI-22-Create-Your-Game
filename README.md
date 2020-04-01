@@ -1,5 +1,10 @@
 # SEI-22-Create-Your-Game
 
+https://dennywithane.github.io/SEI-22-Create-Your-Game/
+
+Feel free to give me comments on where which code I should be changing or implementing new functions!
+
+
 
 PROJECT 1 - PLANNING   General Idea - Fish burger or Cheeseburger ?  
 It’s 2008, instead of the future we are “Back to the Past”!  
